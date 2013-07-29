@@ -2,6 +2,7 @@ package com.google.code.androidrome.demo;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,10 +65,6 @@ public class FeedListAdapter
     {
         private TextView titleTextView;
 
-        private TextView dateTextView;
-
-        private TextView summaryTextView;
-
         public NewsEntryCellView()
         {
             super( context );
@@ -78,24 +75,12 @@ public class FeedListAdapter
         {
             setColumnShrinkable( 0, false );
             setColumnStretchable( 0, false );
-            setColumnShrinkable( 1, false );
-            setColumnStretchable( 1, false );
-            setColumnShrinkable( 2, false );
-            setColumnStretchable( 2, true );
 
-            setPadding( 10, 10, 10, 10 );
+            setPadding(10, 2, 10, 2);
 
             titleTextView = new TextView( context );
-            titleTextView.setPadding( 10, 10, 10, 10 );
+            titleTextView.setPadding( 10, 2, 10, 2 );
             addView( titleTextView );
-
-            dateTextView = new TextView( context );
-            dateTextView.setPadding( 10, 10, 10, 10 );
-            addView( dateTextView );
-
-            summaryTextView = new TextView( context );
-            summaryTextView.setPadding( 10, 10, 10, 10 );
-            addView( summaryTextView );
         }
 
 
@@ -103,8 +88,7 @@ public class FeedListAdapter
         {
             SyndEntry entry = getItem( index );
             titleTextView.setText( entry.getTitle() );
-            dateTextView.setText( entry.getPublishedDate().toString() );
-            summaryTextView.setText( entry.getDescription().getValue() );
+            titleTextView.setTextColor(Color.BLUE);
         }
     }
 }

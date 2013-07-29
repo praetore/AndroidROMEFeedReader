@@ -1,6 +1,7 @@
 package com.google.code.androidrome.demo;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -12,13 +13,13 @@ import com.google.code.rome.android.repackaged.com.sun.syndication.feed.synd.Syn
 public class MyActivity extends Activity
 {
     // This is the feed that will be parsed
-    String url = "http://www.economist.com/rss/the_world_this_week_rss.xml";
+    String url = "http://www.reddit.com/r/GameDeals/.rss";
 
     @Override
     public void onCreate( Bundle savedInstanceState )
     {
         super.onCreate( savedInstanceState );
-        setTitle( "The Economist - The world this week" );
+        setTitle( "Reddit /r/GameDeals" );
 
         initList newsList = new initList();
         newsList.setContext(this);
@@ -38,6 +39,8 @@ public class MyActivity extends Activity
             }
         } );
         listView.setAdapter( feedListAdapter );
+        listView.setBackgroundColor(Color.WHITE);
+        listView.setCacheColorHint(Color.TRANSPARENT);
         mainPanel.addView( listView );
         return mainPanel;
     }
